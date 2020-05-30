@@ -7,6 +7,7 @@ html,
 body {
     font-size: 14px;
     height: 100%;
+    overflow-y: hidden;
     .el-aside {
         .nav_menu {
             width: 200px;
@@ -26,6 +27,19 @@ body {
             padding: 0 20px;
             line-height: 60px;
             border-bottom: 1px solid #e6e6e6;
+        }
+    }
+    .el-main {
+        overflow: hidden;
+        .main_content {
+            .authority_container {
+                .content {
+                    // overflow-y: scroll;
+                    .el-table {
+                        height: 800px;
+                    }
+                }
+            }
         }
     }
 }
