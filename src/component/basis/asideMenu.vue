@@ -17,9 +17,9 @@
             <i class="el-icon-location"></i>
             <span slot="title">{{v.authority.name}}</span>
           </template>
-           <el-menu-item :index="second.authority.id" v-for="(second,keyTwo) in v.subList" :key="keyTwo" @click="openTab(second.authority.attributeMap.route,second.authority.parentId)" >{{second.authority.name}}</el-menu-item>
+           <el-menu-item :index="second.authority.id" v-for="(second,keyTwo) in v.subList" :key="keyTwo" @click="openTab(second.authority.attributeMap.route,second.authority.parentId,second.authority.name)" >{{second.authority.name}}</el-menu-item>
         </el-submenu>
-        <el-menu-item  :index="v.authority.id" v-else :key="key" @click="openTab(v.authority.attributeMap.route,v.authority.parentId)">
+        <el-menu-item  :index="v.authority.id" v-else :key="key" @click="openTab(v.authority.attributeMap.route,v.authority.parentId,v.authority.name)">
           <i class="el-icon-menu"></i>
           <span slot="title">{{v.authority.name}}</span>
         </el-menu-item>
@@ -53,8 +53,13 @@ export default {
     },
     handleClose(key, keyPath) {},
     //打开tab
-    openTab(url,parentId){
-      bus.$emit('menuData',url,parentId);
+    openTab(url,parentId,name){
+      var data ={
+        "url":url,
+        "parentId":parentId,
+        "name":name
+      };
+      bus.$emit('menuData',data);
     }
   }
 };

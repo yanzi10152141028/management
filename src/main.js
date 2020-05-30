@@ -26,7 +26,7 @@ axios.interceptors.request.use(function(config) {
             'uid': store.getters.uid
         };
         Object.assign(params, config.params || {});
-        config.params = params
+        config.params = params;
         return config;
     })
     //全局响应拦截,token失效，跳到登录
