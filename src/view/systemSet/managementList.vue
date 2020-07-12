@@ -75,7 +75,7 @@ export default {
        this.$http.get(this.$url.getManagerList).then(res =>{
           var data = res.data;
           if(data.success){
-            //  this.manageData = data.data;
+            this.manageData = data.data.data;
           }
        })
     }

@@ -90,16 +90,20 @@ export default {
     //添加和编辑
     dailogShow(status) {
       this.dialogFormVisible = true;
-      this.editID = status;
       if (status) {
+        this.editID = status;
         this.btnText = "编辑";
         this.getGroupAuthorityData();
         Object.assign(this.rulesForm, this.parentVal);
       } else {
-        this.$nextTick(() => {
-          this.$refs["rulesForm"].resetFields();
-          this.$refs.tree.setCheckedKeys([]);
-        });
+          this.btnText ="添加";
+          this.editID = 0;
+          this.$nextTick(function(){
+            for(var key in this.rulesForm){
+               this.rulesForm['name']= "";
+            }
+            this.$refs.tree.setCheckedKeys([]);
+          })
       }
     },
     //取消

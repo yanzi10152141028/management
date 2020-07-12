@@ -8,6 +8,6 @@ var apiConfig = {
     getGroupAuthority: baseUrl + "group/authoritys",
     addManager: baseUrl + "user/create_or_update", //添加管理员,
     getAuthorityIds: baseUrl + "group/trees", //获取权限组Ids
-    getManagerList: baseUrl + "user/list"
+    getManagerList: baseUrl + "user/list" //获取管理员列表
 }
 export default apiConfig;
